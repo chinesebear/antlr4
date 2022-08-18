@@ -3,11 +3,11 @@ package default
 
 open public class InputMismatchException <: RecognitionException {
 
-    public init (recognizer: Parser){
+    public init (recognizer: Option<Parser>){
 
     }
 
-    public init (recognizer: Parser, state: Int32, ctx: ParserRuleContext){
+    public init (recognizer: Option<Parser>, state: Int32, ctx: ParserRuleContext){
 
     }
 

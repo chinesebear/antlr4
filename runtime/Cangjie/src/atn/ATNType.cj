@@ -1,4 +1,4 @@
-package atn
+package default
 
 
 public enum ATNType {

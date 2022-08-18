@@ -1,4 +1,4 @@
-package misc
+package default
 
 from std import collection.*
 
@@ -6,15 +6,15 @@ public interface IntSet {
 
     func add (el: Int32): Unit 
 
-    func addAll (set: IntSet): IntSet 
+    func addAll (set: Option<IntSet>): Option<IntSet> 
 
-    func and (a: IntSet): IntSet 
+    func and (a: Option<IntSet>): Option<IntSet> 
 
-    func complement (elements: IntSet): IntSet 
+    func complement (elements: Option<IntSet>): Option<IntSet> 
 
-    func or (a: IntSet): IntSet 
+    func or (a: Option<IntSet>): Option<IntSet> 
 
-    func subtract (a: IntSet): IntSet 
+    func subtract (a: Option<IntSet>): Option<IntSet> 
 
     func sizeFunc (): Int32 
 

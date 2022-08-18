@@ -1,9 +1,8 @@
-package tree.xpath
+package default
 
 // import org.antlr.v4.runtime.tree.ParseTree;
 // import org.antlr.v4.runtime.tree.Trees;
 // import java.util.Collection;
-import atn.*
 
 open public class XPathTokenAnywhereElement <: XPathElement {
 
@@ -13,8 +12,10 @@ open public class XPathTokenAnywhereElement <: XPathElement {
 
     }
 
-    public open override func evaluate (t: ParseTree): Collection<ParseTree> {
-        return Collection<ParseTree>()
+    public open func evaluate (t: Option<ParseTree>): Collection<Option<ParseTree>> {
+  //    return Trees.findAllTokenNodes(t, tokenType);
+
+        return Collection<Option<ParseTree>>()
     }
 
     public init() {}

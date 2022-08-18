@@ -1,9 +1,7 @@
-package tree.xpath
+package default
 
 // import org.antlr.v4.runtime.tree.ParseTree;
 // import java.util.Collection;
-
-import atn.*
 
 public abstract class XPathElement {
 
@@ -15,9 +13,12 @@ public abstract class XPathElement {
 
     }
 
-    public func evaluate (t: ParseTree): Collection<ParseTree> 
+    public func evaluate (t: Option<ParseTree>): Collection<Option<ParseTree>> 
 
-    public func toString (): String {
+    public open func toString (): String {
+  //    String inv = invert ? "!" : "";
+  //    return getClass().getSimpleName() + "[" + inv + nodeName + "]";
+
         return ""
     }
 

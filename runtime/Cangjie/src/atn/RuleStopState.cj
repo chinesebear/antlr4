@@ -1,9 +1,11 @@
-package atn
+package default
 
 
 public class RuleStopState <: ATNState {
 
-    public override func getStateType (): Int32 {
+    public func getStateType (): Int32 {
+  //    return RULE_STOP;
+
         return 0
     }
 

@@ -1,9 +1,11 @@
-package atn
+package default
 
 
 public class StarBlockStartState <: BlockStartState {
 
-    public override func getStateType (): Int32 {
+    public func getStateType (): Int32 {
+  //    return STAR_BLOCK_START;
+
         return 0
     }
 

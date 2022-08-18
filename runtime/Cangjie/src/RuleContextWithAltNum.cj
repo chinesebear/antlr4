@@ -14,11 +14,15 @@ open public class RuleContextWithAltNum <: ParserRuleContext {
 
     }
 
-    public open override func getAltNumber (): Int32 {
+    public open func getAltNumber (): Int32 {
+  //    return altNum;
+
         return 0
     }
 
-    public open override func setAltNumber (altNum: Int32): Unit {
+    public open func setAltNumber (altNum: Int32): Unit {
+  //    this.altNum = altNum;
+
         
     }
 

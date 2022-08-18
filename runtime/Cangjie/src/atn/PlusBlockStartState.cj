@@ -1,11 +1,13 @@
-package atn
+package default
 
 
 public class PlusBlockStartState <: BlockStartState {
 
     public var loopBackState: PlusLoopbackState = PlusLoopbackState()
     
-    public override func getStateType (): Int32 {
+    public func getStateType (): Int32 {
+  //    return PLUS_BLOCK_START;
+
         return 0
     }
 

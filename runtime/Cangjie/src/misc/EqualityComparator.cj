@@ -1,9 +1,9 @@
-package misc
+package default
 
 
 public interface EqualityComparator<T> {
 
-    func hashCode (obj: T): Int32 
+    func hashCodeFunc (obj: T): Int32 
 
     func equals (a: T, b: T): Bool 
 

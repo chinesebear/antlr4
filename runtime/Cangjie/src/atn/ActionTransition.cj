@@ -1,4 +1,4 @@
-package atn
+package default
 
 
 public class ActionTransition <: Transition {
@@ -9,27 +9,35 @@ public class ActionTransition <: Transition {
     
     public let isCtxDependent: Bool = true
     
-    public init (target: ATNState, ruleIndex: Int32){
+    public init (target: Option<ATNState>, ruleIndex: Int32){
 
     }
 
-    public init (target: ATNState, ruleIndex: Int32, actionIndex: Int32, isCtxDependent: Bool){
+    public init (target: Option<ATNState>, ruleIndex: Int32, actionIndex: Int32, isCtxDependent: Bool){
 
     }
 
-    public override func getSerializationType (): Int32 {
+    public func getSerializationType (): Int32 {
+  //    return ACTION;
+
         return 0
     }
 
     public override func isEpsilon (): Bool {
+  //    return true;
+
         return true
     }
 
-    public override func matches (symbol: Int32, minVocabSymbol: Int32, maxVocabSymbol: Int32): Bool {
+    public func matches (symbol: Int32, minVocabSymbol: Int32, maxVocabSymbol: Int32): Bool {
+  //    return false;
+
         return true
     }
 
-    public override func toString (): String {
+    public func toString (): String {
+  //    return "action_" + ruleIndex + ":" + actionIndex;
+
         return ""
     }
 

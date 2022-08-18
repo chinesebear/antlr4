@@ -1,7 +1,6 @@
-package tree
+package default
 
 // import org.antlr.v4.runtime.RuleContext;
-import atn.*
 
 public interface RuleNode <: ParseTree {
 

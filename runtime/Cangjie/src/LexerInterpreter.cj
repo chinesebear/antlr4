@@ -23,50 +23,66 @@ open public class LexerInterpreter <: Lexer {
     
     protected let modeNames: Array<String> = Array<String>()
     
-    private let vocabulary: Vocabulary = Vocabulary()
+    private let vocabulary: Option<Vocabulary> = Option<Vocabulary>.None
     
     protected let decisionToDFA: Array<DFA> = Array<DFA>()
     
     protected let sharedContextCache: PredictionContextCache = PredictionContextCache()
     
-    public init (grammarFileName: String, tokenNames: Collection<String>, ruleNames: Collection<String>, modeNames: Collection<String>, atn: ATN, input: CharStream){
+    public init (grammarFileName: String, tokenNames: Collection<String>, ruleNames: Collection<String>, modeNames: Collection<String>, atn: ATN, input: Option<CharStream>){
 
     }
 
-    public init (grammarFileName: String, vocabulary: Vocabulary, ruleNames: Collection<String>, modeNames: Collection<String>, atn: ATN, input: CharStream){
+    public init (grammarFileName: String, vocabulary: Option<Vocabulary>, ruleNames: Collection<String>, modeNames: Collection<String>, atn: ATN, input: Option<CharStream>){
 
     }
 
-    public init (grammarFileName: String, vocabulary: Vocabulary, ruleNames: Collection<String>, channelNames: Collection<String>, modeNames: Collection<String>, atn: ATN, input: CharStream){
+    public init (grammarFileName: String, vocabulary: Option<Vocabulary>, ruleNames: Collection<String>, channelNames: Collection<String>, modeNames: Collection<String>, atn: ATN, input: Option<CharStream>){
 
     }
 
-    public open override func getATN (): ATN {
+    public open func getATN (): ATN {
+  //    return atn;
+
         return ATN()
     }
 
-    public open override func getGrammarFileName (): String {
+    public open func getGrammarFileName (): String {
+  //    return grammarFileName;
+
         return ""
     }
 
     public open override func getTokenNames (): Array<String> {
+  //    return tokenNames;
+
         return Array<String>()
     }
 
-    public open override func getRuleNames (): Array<String> {
+    public open func getRuleNames (): Array<String> {
+  //    return ruleNames;
+
         return Array<String>()
     }
 
     public open override func getChannelNames (): Array<String> {
+  //    return channelNames;
+
         return Array<String>()
     }
 
     public open override func getModeNames (): Array<String> {
+  //    return modeNames;
+
         return Array<String>()
     }
 
-    public open override func getVocabulary (): Vocabulary {
-        return Vocabulary()
+    public open func getVocabulary (): Option<Vocabulary> {
+  //    if (vocabulary != null) {
+  //        return vocabulary;
+  //    return super.getVocabulary();
+
+        return Option<Vocabulary>.None
     }
 
     public init() {}

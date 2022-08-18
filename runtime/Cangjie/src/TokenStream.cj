@@ -4,11 +4,11 @@ package default
 
 public interface TokenStream <: IntStream {
 
-    func LT (k: Int32): Token 
+    func LT (k: Int32): Option<Token> 
 
-    func get (index: Int32): Token 
+    func get (index: Int32): Option<Token> 
 
-    func getTokenSource (): TokenSource 
+    func getTokenSource (): Option<TokenSource> 
 
     func getText (interval: Interval): String 
 
@@ -16,7 +16,7 @@ public interface TokenStream <: IntStream {
 
     func getText (ctx: RuleContext): String 
 
-    func getText (start: Token, stop: Token): String 
+    func getText (start: Option<Token>, stop: Option<Token>): String 
 
 }
 

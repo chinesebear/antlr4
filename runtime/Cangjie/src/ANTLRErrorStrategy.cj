@@ -4,19 +4,19 @@ package default
 
 public interface ANTLRErrorStrategy {
 
-    func reset (recognizer: Parser): Unit 
+    func reset (recognizer: Option<Parser>): Unit 
 
-    func recoverInline (recognizer: Parser): Token 
+    func recoverInline (recognizer: Option<Parser>): Option<Token> 
 
-    func recover (recognizer: Parser, e: RecognitionException): Unit 
+    func recover (recognizer: Option<Parser>, e: RecognitionException): Unit 
 
-    func sync (recognizer: Parser): Unit 
+    func sync (recognizer: Option<Parser>): Unit 
 
-    func inErrorRecoveryMode (recognizer: Parser): Bool 
+    func inErrorRecoveryMode (recognizer: Option<Parser>): Bool 
 
-    func reportMatch (recognizer: Parser): Unit 
+    func reportMatch (recognizer: Option<Parser>): Unit 
 
-    func reportError (recognizer: Parser, e: RecognitionException): Unit 
+    func reportError (recognizer: Option<Parser>, e: RecognitionException): Unit 
 
 }
 

@@ -1,4 +1,4 @@
-package atn
+package default
 
 
 public class RuleStartState <: ATNState {
@@ -7,7 +7,9 @@ public class RuleStartState <: ATNState {
     
     public var isLeftRecursiveRule: Bool = true
     
-    public override func getStateType (): Int32 {
+    public func getStateType (): Int32 {
+  //    return RULE_START;
+
         return 0
     }
 

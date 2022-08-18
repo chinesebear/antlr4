@@ -3,13 +3,13 @@ package default
 
 public interface TokenSource {
 
-    func nextToken (): Token 
+    func nextToken (): Option<Token> 
 
     func getLine (): Int32 
 
     func getCharPositionInLine (): Int32 
 
-    func getInputStream (): CharStream 
+    func getInputStream (): Option<CharStream> 
 
     func getSourceName (): String 
 

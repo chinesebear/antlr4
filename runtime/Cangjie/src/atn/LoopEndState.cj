@@ -1,11 +1,13 @@
-package atn
+package default
 
 
 public class LoopEndState <: ATNState {
 
-    public var loopBackState: ATNState = ATNState()
+    public var loopBackState: Option<ATNState> = Option<ATNState>.None
     
-    public override func getStateType (): Int32 {
+    public func getStateType (): Int32 {
+  //    return LOOP_END;
+
         return 0
     }
 

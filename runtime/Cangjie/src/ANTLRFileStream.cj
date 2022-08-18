@@ -16,11 +16,16 @@ open public class ANTLRFileStream <: ANTLRInputStream {
 
     }
 
-    public open func load (fileName: String, encoding: String): Unit {
+    public open override func load (fileName: String, encoding: String): Unit {
+  //    data = Utils.readFile(fileName, encoding);
+  //    this.n = data.length;
+
         
     }
 
     public open override func getSourceName (): String {
+  //    return fileName;
+
         return ""
     }
 

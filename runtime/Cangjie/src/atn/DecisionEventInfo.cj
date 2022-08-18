@@ -1,4 +1,4 @@
-package atn
+package default
 
 // import org.antlr.v4.runtime.TokenStream;
 
@@ -8,7 +8,7 @@ open public class DecisionEventInfo {
     
     public let configs: ATNConfigSet = ATNConfigSet()
     
-    public let input: TokenStream = TokenStream()
+    public let input: Option<TokenStream> = Option<TokenStream>.None
     
     public let startIndex: Int32 = 0
     
@@ -16,7 +16,7 @@ open public class DecisionEventInfo {
     
     public let fullCtx: Bool = true
     
-    public init (decision: Int32, configs: ATNConfigSet, input: TokenStream, startIndex: Int32, stopIndex: Int32, fullCtx: Bool){
+    public init (decision: Int32, configs: ATNConfigSet, input: Option<TokenStream>, startIndex: Int32, stopIndex: Int32, fullCtx: Bool){
 
     }
 

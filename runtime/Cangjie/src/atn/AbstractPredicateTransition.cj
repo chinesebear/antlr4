@@ -1,9 +1,9 @@
-package atn
+package default
 
 
 public abstract class AbstractPredicateTransition <: Transition {
 
-    public init (target: ATNState){
+    public init (target: Option<ATNState>){
 
     }
 

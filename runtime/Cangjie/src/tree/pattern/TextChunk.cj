@@ -1,4 +1,4 @@
-package tree.pattern
+package default
 
 
 open class TextChunk <: Chunk {
@@ -10,10 +10,14 @@ open class TextChunk <: Chunk {
     }
 
     public open func getText (): String {
+  //    return text;
+
         return ""
     }
 
-    public open override func toString (): String {
+    public open func toString (): String {
+  //    return "\'" + text + "\'";
+
         return ""
     }
 

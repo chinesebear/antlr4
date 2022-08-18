@@ -1,4 +1,4 @@
-package tree.pattern
+package default
 
 
 open class TagChunk <: Chunk {
@@ -16,14 +16,22 @@ open class TagChunk <: Chunk {
     }
 
     public open func getTag (): String {
+  //    return tag;
+
         return ""
     }
 
     public open func getLabel (): String {
+  //    return label;
+
         return ""
     }
 
-    public open override func toString (): String {
+    public open func toString (): String {
+  //    if (label != null) {
+  //        return label + ":" + tag;
+  //    return tag;
+
         return ""
     }
 

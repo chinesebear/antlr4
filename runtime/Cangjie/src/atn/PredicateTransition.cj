@@ -1,4 +1,4 @@
-package atn
+package default
 
 
 public class PredicateTransition <: AbstractPredicateTransition {
@@ -9,27 +9,37 @@ public class PredicateTransition <: AbstractPredicateTransition {
     
     public let isCtxDependent: Bool = true
     
-    public init (target: ATNState, ruleIndex: Int32, predIndex: Int32, isCtxDependent: Bool){
+    public init (target: Option<ATNState>, ruleIndex: Int32, predIndex: Int32, isCtxDependent: Bool){
 
     }
 
-    public override func getSerializationType (): Int32 {
+    public func getSerializationType (): Int32 {
+  //    return PREDICATE;
+
         return 0
     }
 
-    public override func isEpsilon (): Bool {
+    public func isEpsilon (): Bool {
+  //    return true;
+
         return true
     }
 
-    public override func matches (symbol: Int32, minVocabSymbol: Int32, maxVocabSymbol: Int32): Bool {
+    public func matches (symbol: Int32, minVocabSymbol: Int32, maxVocabSymbol: Int32): Bool {
+  //    return false;
+
         return true
     }
 
     public func getPredicate (): SemanticContextPredicate {
+  //    return new Option<SemanticContext>.SemanticContextPredicate(ruleIndex, predIndex, isCtxDependent);
+
         return SemanticContextPredicate()
     }
 
-    public override func toString (): String {
+    public func toString (): String {
+  //    return "pred_" + ruleIndex + ":" + predIndex;
+
         return ""
     }
 
