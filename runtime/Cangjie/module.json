@@ -1,0 +1,13 @@
+{
+  "cjc_version": "0.30.4",
+  "organization": "Cangjie",
+  "name": "antlr4runtime",
+  "description": "nothing here",
+  "version": "1.0.0",
+  "requires": {},
+  "package_requires": {},
+  "foreign_requires": {},
+  "output_type": "dynamic",
+  "command_option": "",
+  "cross_compile_configuration": {}
+}
