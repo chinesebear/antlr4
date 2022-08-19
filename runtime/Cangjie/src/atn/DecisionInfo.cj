@@ -1,4 +1,4 @@
-package atn
+package default
 
 from std import collection.*
 
@@ -49,6 +49,8 @@ open public class DecisionInfo {
     }
 
     public open func toString (): String {
+  //    return "{decision=" + decision + ", contextSensitivities=" + contextSensitivities.size() + ", errors=" + errors.size() + ", ambiguities=" + ambiguities.size() + ", SLL_lookahead=" + SLL_TotalLook + ", SLL_ATNTransitions=" + SLL_ATNTransitions + ", SLL_DFATransitions=" + SLL_DFATransitions + ", LL_Fallback=" + LL_Fallback + ", LL_lookahead=" + LL_TotalLook + ", LL_ATNTransitions=" + LL_ATNTransitions + '}';
+
         return ""
     }
 

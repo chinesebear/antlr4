@@ -1,9 +1,11 @@
-package atn
+package default
 
 
 public class TokensStartState <: DecisionState {
 
-    public override func getStateType (): Int32 {
+    public func getStateType (): Int32 {
+  //    return TOKEN_START;
+
         return 0
     }
 

@@ -1,15 +1,16 @@
-package tree
+package default
 
 // import org.antlr.v4.runtime.Token;
-import atn.*
 
 open public class ErrorNodeImpl <: TerminalNodeImpl & ErrorNode {
 
-    public init (token: Token){
+    public init (token: Option<Token>){
 
     }
 
-    public open override func accept (visitor: ParseTreeVisitor< T>): T {
+    public override func accept (visitor: Option<ParseTreeVisitor<T>>): T {
+  //    return visitor.visitErrorNode(this);
+
         return T()
     }
 

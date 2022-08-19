@@ -1,4 +1,4 @@
-package atn
+package default
 
 from std import collection.*
 // import java.util.Collections;
@@ -27,21 +27,25 @@ public abstract class Transition {
     
     public static let serializationNames: List<String> = List<String>()
     
-    public static let serializationTypes: Map<Class< Transition>, Integer> = Map<Class< Transition>, Integer>()
+    public static let serializationTypes: Map<Class<Option<Transition>>, Integer> = Map<Class<Option<Transition>>, Integer>()
     
-    public var target: ATNState = ATNState()
+    public var target: Option<ATNState> = Option<ATNState>.None
     
-    protected init (target: ATNState){
+    protected init (target: Option<ATNState>){
 
     }
 
     public func getSerializationType (): Int32 
 
-    public func isEpsilon (): Bool {
+    public open func isEpsilon (): Bool {
+  //    return false;
+
         return true
     }
 
-    public func labelFunc (): IntervalSet {
+    public open func labelFunc (): IntervalSet {
+  //    return null;
+
         return IntervalSet()
     }
 

@@ -1,4 +1,4 @@
-package misc
+package default
 
 
 public interface Predicate<T> {

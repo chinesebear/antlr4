@@ -1,4 +1,4 @@
-package atn
+package default
 
 from std import collection.*
 // import java.util.Collections;
@@ -46,61 +46,103 @@ public abstract class ATNState {
     
     public var epsilonOnlyTransitions: Bool = true
     
-    protected let transitions: List<Transition> = List<Transition>()
+    protected let transitions: List<Option<Transition>> = List<Option<Transition>>()
     
     public var nextTokenWithinRule: IntervalSet = IntervalSet()
     
-    public func hashCodeFunc (): Int32 {
+    public open func hashCode (): Int32 {
+  //    return stateNumber;
+
         return 0
     }
 
-    public func equals (o: Object): Bool {
+    public open func equals (o: Object): Bool {
+  //    if (o instanceof Option<ATNState>) return stateNumber == ((Option<ATNState>)o).stateNumber;
+  //    return false;
+
         return true
     }
 
-    public func isNonGreedyExitState (): Bool {
+    public open func isNonGreedyExitState (): Bool {
+  //    return false;
+
         return true
     }
 
-    public func toString (): String {
+    public open func toString (): String {
+  //    return String.valueOf(stateNumber);
+
         return ""
     }
 
-    public func getTransitions (): Array<Transition> {
-        return Array<Transition>()
+    public open func getTransitions (): Array<Option<Transition>> {
+  //    return transitions.toArray(new Option<Transition>[0]);
+
+        return Array<Option<Transition>>()
     }
 
-    public func getNumberOfTransitions (): Int32 {
+    public open func getNumberOfTransitions (): Int32 {
+  //    return transitions.size();
+
         return 0
     }
 
-    public func addTransition (e: Transition): Unit {
+    public open func addTransition (e: Option<Transition>): Unit {
+  //    addTransition(transitions.size(), e);
+
         
     }
 
-    public func addTransition (index: Int32, e: Transition): Unit {
+    public open func addTransition (index: Int32, e: Option<Transition>): Unit {
+  //    if (transitions.isEmpty()) {
+  //        epsilonOnlyTransitions = e.isEpsilon();
+  //    } else if (epsilonOnlyTransitions != e.isEpsilon()) {
+  //        System.err.format(Locale.getDefault(), "ATN state %d has both epsilon and non-epsilon transitions.\n", stateNumber);
+  //        epsilonOnlyTransitions = false;
+  //    boolean alreadyPresent = false;
+  //    for (Transition t : transitions) {
+  //        if (t.target.stateNumber == e.target.stateNumber) {
+  //            if (t.label() != null && e.label() != null && t.label().equals(e.label())) {
+  //                alreadyPresent = true;
+  //                break;
+  //            } else if (t.isEpsilon() && e.isEpsilon()) {
+  //                alreadyPresent = true;
+  //                break;
+  //    if (!alreadyPresent) {
+  //        transitions.add(index, e);
+
         
     }
 
-    public func transition (i: Int32): Transition {
-        return Transition()
+    public open func transition (i: Int32): Option<Transition> {
+  //    return transitions.get(i);
+
+        return Option<Transition>.None
     }
 
-    public func setTransition (i: Int32, e: Transition): Unit {
+    public open func setTransition (i: Int32, e: Option<Transition>): Unit {
+  //    transitions.set(i, e);
+
         
     }
 
-    public func removeTransition (index: Int32): Transition {
-        return Transition()
+    public open func removeTransition (index: Int32): Option<Transition> {
+  //    return transitions.remove(index);
+
+        return Option<Transition>.None
     }
 
     public func getStateType (): Int32 
 
-    public func onlyHasEpsilonTransitions (): Bool {
+    public open func onlyHasEpsilonTransitions (): Bool {
+  //    return epsilonOnlyTransitions;
+
         return true
     }
 
-    public func setRuleIndex (ruleIndex: Int32): Unit {
+    public open func setRuleIndex (ruleIndex: Int32): Unit {
+  //    this.ruleIndex = ruleIndex;
+
         
     }
 

@@ -1,4 +1,4 @@
-package misc
+package default
 
 
 public abstract class AbstractEqualityComparator<T> <: EqualityComparator<T> {

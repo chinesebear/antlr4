@@ -1,4 +1,4 @@
-package atn
+package default
 
 // import org.antlr.v4.runtime.dfa.DFAState;
 from std import collection.*
@@ -17,16 +17,25 @@ public abstract class ATNSimulator {
 
     public func reset (): Unit 
 
-    public func clearDFA (): Unit {
+    public open func clearDFA (): Unit {
+  //    throw new UnsupportedOperationException("This ATN simulator does not support clearing the DFA.");
+
         
     }
 
-    public func getSharedContextCache (): PredictionContextCache {
+    public open func getSharedContextCache (): PredictionContextCache {
+  //    return sharedContextCache;
+
         return PredictionContextCache()
     }
 
-    public func getCachedContext (context: PredictionContext): PredictionContext {
-        return PredictionContext()
+    public open func getCachedContext (context: Option<PredictionContext>): Option<PredictionContext> {
+  //    if (sharedContextCache == null) return context;
+  //    synchronized (sharedContextCache) {
+  //        IdentityHashMap<PredictionContext, PredictionContext> visited = new IdentityHashMap<PredictionContext, PredictionContext>();
+  //        return Option<PredictionContext>.getCachedContext(context, sharedContextCache, visited);
+
+        return Option<PredictionContext>.None
     }
 
     public init() {}

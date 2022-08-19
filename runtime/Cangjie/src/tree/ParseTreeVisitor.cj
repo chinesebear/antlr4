@@ -1,15 +1,15 @@
-package tree
+package default
 
 
 public interface ParseTreeVisitor<T> {
 
-    func visit (tree: ParseTree): T 
+    func visit (tree: Option<ParseTree>): T 
 
-    func visitChildren (node: RuleNode): T 
+    func visitChildren (node: Option<RuleNode>): T 
 
-    func visitTerminal (node: TerminalNode): T 
+    func visitTerminal (node: Option<TerminalNode>): T 
 
-    func visitErrorNode (node: ErrorNode): T 
+    func visitErrorNode (node: Option<ErrorNode>): T 
 
 }
 

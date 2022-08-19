@@ -1,9 +1,11 @@
-package atn
+package default
 
 
 public class PlusLoopbackState <: DecisionState {
 
-    public override func getStateType (): Int32 {
+    public func getStateType (): Int32 {
+  //    return PLUS_LOOP_BACK;
+
         return 0
     }
 

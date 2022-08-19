@@ -35,7 +35,7 @@ open public class ParserInterpreter <: Parser {
     
     protected let ruleNames: Array<String> = Array<String>()
     
-    private let vocabulary: Vocabulary = Vocabulary()
+    private let vocabulary: Option<Vocabulary> = Option<Vocabulary>.None
     
     protected let parentContextStack: Deque<Pair<ParserRuleContext, Integer>> = Deque<Pair<ParserRuleContext, Integer>>()
     
@@ -51,83 +51,245 @@ open public class ParserInterpreter <: Parser {
     
     protected var rootContext: InterpreterRuleContext = InterpreterRuleContext()
     
-    public init (grammarFileName: String, tokenNames: Collection<String>, ruleNames: Collection<String>, atn: ATN, input: TokenStream){
+    public init (grammarFileName: String, tokenNames: Collection<String>, ruleNames: Collection<String>, atn: ATN, input: Option<TokenStream>){
 
     }
 
-    public init (grammarFileName: String, vocabulary: Vocabulary, ruleNames: Collection<String>, atn: ATN, input: TokenStream){
+    public init (grammarFileName: String, vocabulary: Option<Vocabulary>, ruleNames: Collection<String>, atn: ATN, input: Option<TokenStream>){
 
     }
 
-    public open override func reset (): Unit {
+    public open func reset (): Unit {
+  //    super.reset();
+  //    overrideDecisionReached = false;
+  //    overrideDecisionRoot = null;
+
         
     }
 
-    public open override func getATN (): ATN {
+    public open func getATN (): ATN {
+  //    return atn;
+
         return ATN()
     }
 
-    public open override func getTokenNames (): Array<String> {
+    public open func getTokenNames (): Array<String> {
+  //    return tokenNames;
+
         return Array<String>()
     }
 
-    public open override func getVocabulary (): Vocabulary {
-        return Vocabulary()
+    public open func getVocabulary (): Option<Vocabulary> {
+  //    return vocabulary;
+
+        return Option<Vocabulary>.None
     }
 
-    public open override func getRuleNames (): Array<String> {
+    public open func getRuleNames (): Array<String> {
+  //    return ruleNames;
+
         return Array<String>()
     }
 
-    public open override func getGrammarFileName (): String {
+    public open func getGrammarFileName (): String {
+  //    return grammarFileName;
+
         return ""
     }
 
     public open func parse (startRuleIndex: Int32): ParserRuleContext {
+  //    RuleStartState startRuleStartState = atn.ruleToStartState[startRuleIndex];
+  //    rootContext = createInterpreterRuleContext(null, ATNState.INVALID_STATE_NUMBER, startRuleIndex);
+  //    if (startRuleStartState.isLeftRecursiveRule) {
+  //        enterRecursionRule(rootContext, startRuleStartState.stateNumber, startRuleIndex, 0);
+  //    } else {
+  //        enterRule(rootContext, startRuleStartState.stateNumber, startRuleIndex);
+  //    while (true) {
+  //        ATNState p = getATNState();
+  //        switch (p.getStateType.BYTE) {
+  //        case ATNState.RULE_STOP: 
+  //            if (_ctx.isEmpty()) {
+  //                if (startRuleStartState.isLeftRecursiveRule) {
+  //                    ParserRuleContext result = _ctx;
+  //                    Pair<ParserRuleContext, Integer> parentContext = _parentContextStack.pop();
+  //                    unrollRecursionContexts(parentContext.a);
+  //                    return result;
+  //                } else {
+  //                    exitRule();
+  //                    return rootContext;
+  //            visitRuleStopState(p);
+  //            break;
+  //        
+  //        default: 
+  //            try {
+  //                visitState(p);
+  //            } catch (RecognitionException e) {
+  //                setState(atn.ruleToStopState[p.ruleIndex].stateNumber);
+  //                getContext().exception = e;
+  //                getErrorHandler().reportError(this, e);
+  //                recover(e);
+  //            break;
+  //        
+
         return ParserRuleContext()
     }
 
-    public open override func enterRecursionRule (localctx: ParserRuleContext, state: Int32, ruleIndex: Int32, precedence: Int32): Unit {
+    public open func enterRecursionRule (localctx: ParserRuleContext, state: Int32, ruleIndex: Int32, precedence: Int32): Unit {
+  //    Pair<ParserRuleContext, Integer> pair = new Pair<ParserRuleContext, Integer>(_ctx, localctx.invokingState);
+  //    _parentContextStack.push(pair);
+  //    super.enterRecursionRule(localctx, state, ruleIndex, precedence);
+
         
     }
 
-    protected open func getATNState (): ATNState {
-        return ATNState()
+    protected open func getATNState (): Option<ATNState> {
+  //    return atn.states.get(getState());
+
+        return Option<ATNState>.None
     }
 
-    protected open func visitState (p: ATNState): Unit {
+    protected open func visitState (p: Option<ATNState>): Unit {
+  //    int predictedAlt = 1;
+  //    if (p instanceof DecisionState) {
+  //        predictedAlt = visitDecisionState((DecisionState)p);
+  //    Transition transition = p.transition(predictedAlt - 1);
+  //    switch (transition.getSerializationType.BYTE) {
+  //    case Transition.EPSILON: 
+  //        if (p.getStateType.BYTE == ATNState.STAR_LOOP_ENTRY && ((StarLoopEntryState)p).isPrecedenceDecision && !(transition.target instanceof LoopEndState)) {
+  //            InterpreterRuleContext localctx = createInterpreterRuleContext(_parentContextStack.peek().a, _parentContextStack.peek().b, _ctx.getRuleIndex());
+  //            pushNewRecursionContext(localctx, atn.ruleToStartState[p.ruleIndex].stateNumber, _ctx.getRuleIndex());
+  //        break;
+  //    
+  //    case Transition.ATOM: 
+  //        match(((AtomTransition)transition).label);
+  //        break;
+  //    
+  //    case Transition.RANGE: 
+  //    
+  //    case Transition.SET: 
+  //    
+  //    case Transition.NOT_SET: 
+  //        if (!transition.matches(_input.LA(1), Token.MIN_USER_TOKEN_TYPE, 65535)) {
+  //            recoverInline();
+  //        matchWildcard();
+  //        break;
+  //    
+  //    case Transition.WILDCARD: 
+  //        matchWildcard();
+  //        break;
+  //    
+  //    case Transition.RULE: 
+  //        RuleStartState ruleStartState = (RuleStartState)transition.target;
+  //        int ruleIndex = ruleStartState.ruleIndex;
+  //        InterpreterRuleContext newctx = createInterpreterRuleContext(_ctx, p.stateNumber, ruleIndex);
+  //        if (ruleStartState.isLeftRecursiveRule) {
+  //            enterRecursionRule(newctx, ruleStartState.stateNumber, ruleIndex, ((RuleTransition)transition).precedence);
+  //        } else {
+  //            enterRule(newctx, transition.target.stateNumber, ruleIndex);
+  //        break;
+  //    
+  //    case Transition.PREDICATE: 
+  //        PredicateTransition predicateTransition = (PredicateTransition)transition;
+  //        if (!sempred(_ctx, predicateTransition.ruleIndex, predicateTransition.predIndex)) {
+  //            throw new FailedPredicateException(this);
+  //        break;
+  //    
+  //    case Transition.ACTION: 
+  //        ActionTransition actionTransition = (ActionTransition)transition;
+  //        action(_ctx, actionTransition.ruleIndex, actionTransition.actionIndex);
+  //        break;
+  //    
+  //    case Transition.PRECEDENCE: 
+  //        if (!precpred(_ctx, ((PrecedencePredicateTransition)transition).precedence)) {
+  //            throw new FailedPredicateException(this, String.format("precpred(_ctx, %d)", ((PrecedencePredicateTransition)transition).precedence));
+  //        break;
+  //    
+  //    default: 
+  //        throw new UnsupportedOperationException("Unrecognized ATN transition type.");
+  //    
+  //    setState(transition.target.stateNumber);
+
         
     }
 
-    protected open func visitDecisionState (p: DecisionState): Int32 {
+    protected open func visitDecisionState (p: Option<DecisionState>): Int32 {
+  //    int predictedAlt = 1;
+  //    if (p.getNumberOfTransitions() > 1) {
+  //        getErrorHandler().sync(this);
+  //        int decision = p.decision;
+  //        if (decision == overrideDecision && _input.index() == overrideDecisionInputIndex && !overrideDecisionReached) {
+  //            predictedAlt = overrideDecisionAlt;
+  //            overrideDecisionReached = true;
+  //        } else {
+  //            predictedAlt = getInterpreter().adaptivePredict(_input, decision, _ctx);
+  //    return predictedAlt;
+
         return 0
     }
 
     protected open func createInterpreterRuleContext (parent: ParserRuleContext, invokingStateNumber: Int32, ruleIndex: Int32): InterpreterRuleContext {
+  //    return new InterpreterRuleContext(parent, invokingStateNumber, ruleIndex);
+
         return InterpreterRuleContext()
     }
 
-    protected open func visitRuleStopState (p: ATNState): Unit {
+    protected open func visitRuleStopState (p: Option<ATNState>): Unit {
+  //    RuleStartState ruleStartState = atn.ruleToStartState[p.ruleIndex];
+  //    if (ruleStartState.isLeftRecursiveRule) {
+  //        Pair<ParserRuleContext, Integer> parentContext = _parentContextStack.pop();
+  //        unrollRecursionContexts(parentContext.a);
+  //        setState(parentContext.b);
+  //    } else {
+  //        exitRule();
+  //    RuleTransition ruleTransition = (RuleTransition)atn.states.get(getState()).transition(0);
+  //    setState(ruleTransition.followState.stateNumber);
+
         
     }
 
     public open func addDecisionOverride (decision: Int32, tokenIndex: Int32, forcedAlt: Int32): Unit {
+  //    overrideDecision = decision;
+  //    overrideDecisionInputIndex = tokenIndex;
+  //    overrideDecisionAlt = forcedAlt;
+
         
     }
 
     public open func getOverrideDecisionRoot (): InterpreterRuleContext {
+  //    return overrideDecisionRoot;
+
         return InterpreterRuleContext()
     }
 
     protected open func recover (e: RecognitionException): Unit {
+  //    int i = _input.index();
+  //    getErrorHandler().recover(this, e);
+  //    if (_input.index() == i) {
+  //        if (e instanceof InputMismatchException) {
+  //            InputMismatchException ime = (InputMismatchException)e;
+  //            Token tok = e.getOffendingToken();
+  //            int expectedTokenType = Token.INVALID_TYPE;
+  //            if (!ime.getExpectedTokens().isNil()) {
+  //                expectedTokenType = ime.getExpectedTokens().getMinElement();
+  //            Token errToken = getTokenFactory().create(new Pair<TokenSource, CharStream>(tok.getTokenSource(), tok.getTokenSource().getInputStream()), expectedTokenType, tok.getText(), Token.DEFAULT_CHANNEL, -1, -1, tok.getLine(), tok.getCharPositionInLine());
+  //            _ctx.addErrorNode(createErrorNode(_ctx, errToken));
+  //        } else {
+  //            Token tok = e.getOffendingToken();
+  //            Token errToken = getTokenFactory().create(new Pair<TokenSource, CharStream>(tok.getTokenSource(), tok.getTokenSource().getInputStream()), Token.INVALID_TYPE, tok.getText(), Token.DEFAULT_CHANNEL, -1, -1, tok.getLine(), tok.getCharPositionInLine());
+  //            _ctx.addErrorNode(createErrorNode(_ctx, errToken));
+
         
     }
 
-    protected open func recoverInline (): Token {
-        return Token()
+    protected open func recoverInline (): Option<Token> {
+  //    return _errHandler.recoverInline(this);
+
+        return Option<Token>.None
     }
 
     public open func getRootContext (): InterpreterRuleContext {
+  //    return rootContext;
+
         return InterpreterRuleContext()
     }
 

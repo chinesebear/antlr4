@@ -13,7 +13,9 @@ open public class InterpreterRuleContext <: ParserRuleContext {
 
     }
 
-    public open override func getRuleIndex (): Int32 {
+    public open func getRuleIndex (): Int32 {
+  //    return ruleIndex;
+
         return 0
     }
 

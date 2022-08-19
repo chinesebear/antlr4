@@ -1,11 +1,13 @@
-package atn
+package default
 
 
 public class BlockEndState <: ATNState {
 
-    public var startState: BlockStartState = BlockStartState()
+    public var startState: Option<BlockStartState> = Option<BlockStartState>.None
     
-    public override func getStateType (): Int32 {
+    public func getStateType (): Int32 {
+  //    return BLOCK_END;
+
         return 0
     }
 

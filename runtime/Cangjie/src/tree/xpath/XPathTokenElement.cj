@@ -1,4 +1,4 @@
-package tree.xpath
+package default
 
 // import org.antlr.v4.runtime.tree.ParseTree;
 // import org.antlr.v4.runtime.tree.TerminalNode;
@@ -15,8 +15,16 @@ open public class XPathTokenElement <: XPathElement {
 
     }
 
-    public open override func evaluate (t: ParseTree): Collection<ParseTree> {
-        return Collection<ParseTree>()
+    public open func evaluate (t: Option<ParseTree>): Collection<Option<ParseTree>> {
+  //    List<ParseTree> nodes = new ArrayList<ParseTree>();
+  //    for (Tree c : Trees.getChildren(t)) {
+  //        if (c instanceof TerminalNode) {
+  //            TerminalNode tnode = (TerminalNode)c;
+  //            if ((tnode.getSymbol().getType.BYTE == tokenType && !invert) || (tnode.getSymbol().getType.BYTE != tokenType && invert)) {
+  //                nodes.add(tnode);
+  //    return nodes;
+
+        return Collection<Option<ParseTree>>()
     }
 
     public init() {}

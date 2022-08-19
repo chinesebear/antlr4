@@ -1,4 +1,4 @@
-package tree.xpath
+package default
 
 // import org.antlr.v4.runtime.ParserRuleContext;
 // import org.antlr.v4.runtime.tree.ParseTree;
@@ -15,8 +15,16 @@ open public class XPathRuleElement <: XPathElement {
 
     }
 
-    public open override func evaluate (t: ParseTree): Collection<ParseTree> {
-        return Collection<ParseTree>()
+    public open func evaluate (t: Option<ParseTree>): Collection<Option<ParseTree>> {
+  //    List<ParseTree> nodes = new ArrayList<ParseTree>();
+  //    for (Tree c : Trees.getChildren(t)) {
+  //        if (c instanceof ParserRuleContext) {
+  //            ParserRuleContext ctx = (ParserRuleContext)c;
+  //            if ((ctx.getRuleIndex() == ruleIndex && !invert) || (ctx.getRuleIndex() != ruleIndex && invert)) {
+  //                nodes.add(ctx);
+  //    return nodes;
+
+        return Collection<Option<ParseTree>>()
     }
 
     public init() {}

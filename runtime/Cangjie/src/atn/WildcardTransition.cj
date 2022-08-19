@@ -1,21 +1,27 @@
-package atn
+package default
 
 
 public class WildcardTransition <: Transition {
 
-    public init (target: ATNState){
+    public init (target: Option<ATNState>){
 
     }
 
-    public override func getSerializationType (): Int32 {
+    public func getSerializationType (): Int32 {
+  //    return WILDCARD;
+
         return 0
     }
 
-    public override func matches (symbol: Int32, minVocabSymbol: Int32, maxVocabSymbol: Int32): Bool {
+    public func matches (symbol: Int32, minVocabSymbol: Int32, maxVocabSymbol: Int32): Bool {
+  //    return symbol >= minVocabSymbol && symbol <= maxVocabSymbol;
+
         return true
     }
 
-    public override func toString (): String {
+    public func toString (): String {
+  //    return ".";
+
         return ""
     }
 

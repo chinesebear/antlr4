@@ -1,11 +1,16 @@
 package default
 
 
-
-public let EOF: Int32 = -1
-public let UNKNOWN_SOURCE_NAME: String = "<unknown>"
-
 public interface IntStream {
+
+    prop public static let EOF: Int32 {
+        get() { -1 }
+        set(value) { }
+    }
+    prop public static let UNKNOWN_SOURCE_NAME: String {
+        get() { "<unknown>" }
+        set(value) { }
+    }
     func consume (): Unit 
 
     func LA (i: Int32): Int32 

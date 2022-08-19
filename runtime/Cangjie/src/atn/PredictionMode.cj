@@ -1,4 +1,4 @@
-package atn
+package default
 
 // import org.antlr.v4.runtime.misc.AbstractEqualityComparator;
 from std import collection.*

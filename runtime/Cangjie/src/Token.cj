@@ -1,15 +1,36 @@
 package default
 
 
-public let INVALID_TYPE: Int32 = 0
-public let EPSILON: Int32 = -2
-public let MIN_USER_TOKEN_TYPE: Int32 = 1
-public let EOF: Int32 = 0
-public let DEFAULT_CHANNEL: Int32 = 0
-public let HIDDEN_CHANNEL: Int32 = 1
-public let MIN_USER_CHANNEL_VALUE: Int32 = 2
-
 public interface Token {
+
+    prop public static let INVALID_TYPE: Int32 {
+        get() { 0 }
+        set(value) { }
+    }
+    prop public static let EPSILON: Int32 {
+        get() { -2 }
+        set(value) { }
+    }
+    prop public static let MIN_USER_TOKEN_TYPE: Int32 {
+        get() { 1 }
+        set(value) { }
+    }
+    prop public static let EOF: Int32 {
+        get() { 0 }
+        set(value) { }
+    }
+    prop public static let DEFAULT_CHANNEL: Int32 {
+        get() { 0 }
+        set(value) { }
+    }
+    prop public static let HIDDEN_CHANNEL: Int32 {
+        get() { 1 }
+        set(value) { }
+    }
+    prop public static let MIN_USER_CHANNEL_VALUE: Int32 {
+        get() { 2 }
+        set(value) { }
+    }
     func getText (): String 
 
     func getType (): Int32 
@@ -26,9 +47,9 @@ public interface Token {
 
     func getStopIndex (): Int32 
 
-    func getTokenSource (): TokenSource 
+    func getTokenSource (): Option<TokenSource> 
 
-    func getInputStream (): CharStream 
+    func getInputStream (): Option<CharStream> 
 
 }
 

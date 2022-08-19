@@ -1,8 +1,7 @@
-package tree
+package default
 
 // import org.antlr.v4.runtime.TokenStream;
 // import org.antlr.v4.runtime.misc.Interval;
-import atn.*
 
 public interface SyntaxTree <: Tree {
 
