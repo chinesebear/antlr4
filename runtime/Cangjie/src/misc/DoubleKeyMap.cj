@@ -1,60 +1,31 @@
-package default
+package misc
 
-// import java.util.Collection;
 from std import collection.*
 
-open public class DoubleKeyMap<Key1,Key2,Value> {
-
-    var data: Map<Key1, Map<Key2, Value>> = Map<Key1, Map<Key2, Value>>()
-    
-    public open func put (k1: Key1, k2: Key2, v: Value): Value {
-  //    Map<Key2, Value> data2 = data.get(k1);
-  //    Value prev = null;
-  //    if (data2 == null) {
-  //        data2 = new LinkedHashMap<Key2, Value>();
-  //        data.put(k1, data2);
-  //    } else {
-  //        prev = data2.get(k2);
-  //    data2.put(k2, v);
-  //    return prev;
-
-        return Value()
+open public class DoubleKeyMap<K,M,V> where K <: Equatable<K> & Hashable & Keys<K>, M <: Equatable<M> & Hashable, V <: Values<V> {
+    var data: HashMap<K, HashMap<M, V>> = HashMap<K, HashMap<M,V>>()
+    public open func put (k1: K, k2: M, v: V): V {
+        var data2: HashMap<M, V> = data.get(k1).getOrThrow()
+        return data2.put(k2, v).getOrThrow()
+    }
+    public open func get (k1: K, k2: M): V {
+        return data.get(k1).getOrThrow().get(k2).getOrThrow()
     }
 
-    public open func get (k1: Key1, k2: Key2): Value {
-  //    Map<Key2, Value> data2 = data.get(k1);
-  //    if (data2 == null) return null;
-  //    return data2.get(k2);
-
-        return Value()
+    public open func get (k1: K): HashMap<M, V> {
+        return data.get(k1).getOrThrow()
     }
 
-    public open func get (k1: Key1): Map<Key2, Value> {
-  //    return data.get(k1);
-
-        return Map<Key2, Value>()
+    public open func Vs (k1: K): Values<V> {
+        data.get(k1).getOrThrow().values()
     }
 
-    public open func values (k1: Key1): Collection<Value> {
-  //    Map<Key2, Value> data2 = data.get(k1);
-  //    if (data2 == null) return null;
-  //    return data2.values();
-
-        return Collection<Value>()
+    public open func keySet (): Keys<K> {
+        data.keys()
     }
 
-    public open func keySet (): Set<Key1> {
-  //    return data.keySet();
-
-        return Set<Key1>()
-    }
-
-    public open func keySet (k1: Key1): Set<Key2> {
-  //    Map<Key2, Value> data2 = data.get(k1);
-  //    if (data2 == null) return null;
-  //    return data2.keySet();
-
-        return Set<Key2>()
+    public open func keySet (k1: K): Keys<M> {
+        data.get(k1).getOrThrow().keys()
     }
 
     public init() {}
