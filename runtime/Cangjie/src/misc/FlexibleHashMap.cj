@@ -1,29 +1,28 @@
-package default
+package misc
 
 from std import collection.*
-// import java.util.Collection;
 
-open public class FlexibleHashMap<K,V> <: Map<K, V> {
+open public class FlexibleHashMap<K,V> <: HashMap<K, V> {
 
     public static let INITAL_CAPACITY: Int32 = 16
-    
+
     public static let INITAL_BUCKET_CAPACITY: Int32 = 8
-    
+
     public static let LOAD_FACTOR: Float64 = 0.75
-    
+
     protected let comparator: AbstractEqualityComparator<K> = AbstractEqualityComparator<K>()
-    
-    protected var buckets: LinkedList<Entry<K, V>>[] = LinkedList<Entry<K, V>>[]()
-    
+
+    protected var buckets: ArrayList<(K, V)> = ArrayList<(K, V)>()
+
     protected var n: Int32 = 0
-    
+
     protected var threshold: Int32 = 0
-    
+
     protected var currentPrime: Int32 = 1
-    
+
     protected var initialBucketCapacity: Int32 = 0
-    
-    private static func createEntryListArray (length: Int32): LinkedList<Entry<K, V>>[] {
+
+    private static func createEntryListArray (length: Int32): ArrayList<(K, V)> {
   //    @SuppressWarnings("unchecked")
   //    LinkedList<Entry<K, V>>[] result = (LinkedList<Entry<K, V>>[])new LinkedList<?>[length];
   //    return result;
@@ -83,7 +82,7 @@ open public class FlexibleHashMap<K,V> <: Map<K, V> {
     public open func putAll (m: Option<Map<K, V>>): Unit {
   //    throw new UnsupportedOperationException();
 
-        
+
     }
 
     public open func keySet (): Set<K> {
@@ -155,26 +154,22 @@ open public class FlexibleHashMap<K,V> <: Map<K, V> {
   //            put(e.key, e.value);
   //    n = oldSize;
 
-        
+
     }
 
     public open func sizeFunc (): Int32 {
-  //    return n;
-
-        return 0
+        n
     }
 
     public open func isEmpty (): Bool {
-  //    return n == 0;
-
-        return true
+        n == 0
     }
 
     public open func clear (): Unit {
   //    buckets = createEntryListArray(INITAL_CAPACITY);
   //    n = 0;
 
-        
+
     }
 
     public open func toString (): String {
@@ -225,7 +220,7 @@ open public class FlexibleHashMap<K,V> <: Map<K, V> {
   //    System.out.println(map);
   //    System.out.println(map.toTableString());
 
-        
+
     }
 
     public init() {}
@@ -240,12 +235,11 @@ class FlexibleHashMapEntry<K,V> {
         class_out = FlexibleHashMap()
     }
     public let key: K = K()
-    
-    public var value: V = V()
-    
-    public func toString (): String {
-  //    return key.toString() + ":" + value.toString();
 
+    public var value: V = V()
+
+    public func toString (): String {
+        key.toString() + ":" + value.toString()
         return ""
     }
 
