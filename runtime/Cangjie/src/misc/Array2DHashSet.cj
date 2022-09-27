@@ -1,4 +1,4 @@
-package default
+package misc
 
 from std import collection.*
 // import java.util.Collection;
@@ -8,23 +8,23 @@ from std import collection.*
 open public class Array2DHashSet<T> <: Set<T> {
 
     public static let INITAL_CAPACITY: Int32 = 16
-    
+
     public static let INITAL_BUCKET_CAPACITY: Int32 = 8
-    
+
     public static let LOAD_FACTOR: Float64 = 0.75
-    
+
     protected let comparator: AbstractOption<EqualityComparator<T>> = AbstractOption<EqualityComparator<T>>()
-    
+
     protected var buckets: Array<Array<T>> = Array<Array<T>>()
-    
+
     protected var n: Int32 = 0
-    
+
     protected var threshold: Int32 = 0
-    
+
     protected var currentPrime: Int32 = 1
-    
+
     protected var initialBucketCapacity: Int32 = 0
-    
+
     public init (){
 
     }
@@ -38,36 +38,38 @@ open public class Array2DHashSet<T> <: Set<T> {
     }
 
     public open func getOrAdd (o: T): T {
-  //    if (n > threshold) expand();
-  //    return getOrAddImpl(o);
-
-        return T()
+      if (n > threshold) {
+        expand();
+      }
+      return getOrAddImpl(o);
     }
 
     protected open func getOrAddImpl (o: T): T {
-  //    int b = getBucket(o);
-  //    T[] bucket = buckets[b];
-  //    if (bucket == null) {
-  //        bucket = createBucket(initialBucketCapacity);
-  //        bucket[0] = o;
-  //        buckets[b] = bucket;
-  //        n++;
-  //        return o;
-  //    for (int i = 0; i < bucket.length; i++) {
-  //        T existing = bucket[i];
-  //        if (existing == null) {
-  //            bucket[i] = o;
-  //            n++;
-  //            return o;
-  //        if (comparator.equals(existing, o)) return existing;
-  //    int oldLength = bucket.length;
-  //    bucket = Arrays.copyOf(bucket, bucket.length * 2);
-  //    buckets[b] = bucket;
-  //    bucket[oldLength] = o;
-  //    n++;
-  //    return o;
-
-        return T()
+      int b = getBucket(o);
+      T[] bucket = buckets[b];
+      if (bucket == null) {
+          bucket = createBucket(initialBucketCapacity);
+          bucket[0] = o;
+          buckets[b] = bucket;
+          n++;
+          return o;
+      }
+      for (int i = 0; i < bucket.length; i++) {
+          let existing: T = bucket[i];
+          if (existing == null) {
+              bucket[i] = o;
+              n++;
+              return o;
+          if (comparator.equals(existing, o)) {
+            return existing;
+          }
+          int oldLength = bucket.length;
+          bucket = Arrays.copyOf(bucket, bucket.length * 2);
+          buckets[b] = bucket;
+          bucket[oldLength] = o;
+          n++;
+      }
+      return o;
     }
 
     public open func get (o: T): T {
@@ -145,7 +147,7 @@ open public class Array2DHashSet<T> <: Set<T> {
   //            newBucketLengths[b]++;
   //    assert n == oldSize;
 
-        
+
     }
 
     public open func add (t: T): Bool {
@@ -314,7 +316,7 @@ open public class Array2DHashSet<T> <: Set<T> {
   //    n = 0;
   //    threshold = (int)Math.floor(INITAL_CAPACITY * LOAD_FACTOR);
 
-        
+
     }
 
     public open func toString (): String {
@@ -380,11 +382,11 @@ class Array2DHashSetSetIterator <: Iterator<T> {
         class_out = Array2DHashSet()
     }
     let data: Array<T> = Array<T>()
-    
+
     var nextIndex: Int32 = 0
-    
+
     var removed: Bool = true
-    
+
     public func hasNext (): Bool {
   //    return nextIndex < data.length;
 
@@ -406,7 +408,7 @@ class Array2DHashSetSetIterator <: Iterator<T> {
   //    Array2DHashSet.this.remove(data[nextIndex - 1]);
   //    removed = true;
 
-        
+
     }
 
 }
