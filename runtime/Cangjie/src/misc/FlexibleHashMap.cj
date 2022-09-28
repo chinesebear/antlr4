@@ -12,7 +12,7 @@ open public class FlexibleHashMap<K,V> <: HashMap<K, V> {
 
     protected let comparator: AbstractEqualityComparator<K> = AbstractEqualityComparator<K>()
 
-    protected var buckets: ArrayList<(K, V)> = ArrayList<(K, V)>()
+    protected var buckets: Array<ArrayList<(K, V)>> = Array<ArrayList<(K, V)>>()
 
     protected var n: Int32 = 0
 
@@ -22,23 +22,17 @@ open public class FlexibleHashMap<K,V> <: HashMap<K, V> {
 
     protected var initialBucketCapacity: Int32 = 0
 
-    private static func createEntryListArray (length: Int32): ArrayList<(K, V)> {
-  //    @SuppressWarnings("unchecked")
-  //    LinkedList<Entry<K, V>>[] result = (LinkedList<Entry<K, V>>[])new LinkedList<?>[length];
-  //    return result;
-
-        return LinkedList<Entry<K, V>>[]()
+    private static func createEntryListArray (length: Int32): Array<ArrayList<(K, V)>> {
+        Array<ArrayList<(K, V)>>(length)
     }
 
     protected open func getBucket (key: K): Int32 {
-  //    int hash = comparator.hashCode(key);
-  //    int b = hash & (buckets.length - 1);
-  //    return b;
-
-        return 0
+     let hash: Int32 = comparator.hashCode(key);
+     let b: Int32 = hash & (buckets.length - 1);
+     return b;
     }
 
-    public open func get (key: Object): V {
+    public open func get (key: K): V {
   //    @SuppressWarnings("unchecked")
   //    K typedKey = (K)key;
   //    if (key == null) return null;
@@ -98,7 +92,12 @@ open public class FlexibleHashMap<K,V> <: HashMap<K, V> {
   //        for (Entry<K, V> e : bucket) {
   //            a.add(e.value);
   //    return a;
+        let ret: ArrayList<V> = ArrayList<V>(size())
+        for (arr in buckets) {
+            for (lst in arr) {
 
+            }
+        }
         return Collection<V>()
     }
 
